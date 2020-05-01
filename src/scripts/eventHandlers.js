@@ -6,37 +6,65 @@
 // Museum Search Event Handler
 
 
+let parksFieldValue2 = document.querySelector("#parksField")
+let resultsSection = document.querySelector(".searchResults")
 
-// Parks Search Event Handler
+// Parks Event Handler
 document.querySelector("#parkSearchButton").addEventListener("click", event => {
   let parksFieldValue = document.querySelector("#parksField").value;
   getParks(parksFieldValue)
     .then(parks => {
       for (let i = 0; i < parks.length; i++) {
         resultsContainer.innerHTML = parksHTMLFactory(parks[i], i)
+        parksFieldValue2.value = ""
       }
-      console.log(resultsContainer)
-      document.getElementById("parks-save-button").addEventListener("click", event => {
-        itineraryResultsContainer.innerHTML = "Test"
+      document.querySelector(".parks-save-button").addEventListener("click", event => {
+        parkResultID = document.querySelector("#park--0")
+        itineraryResultsContainer.innerHTML += document.querySelector(".parkTitle").innerHTML
+
+        resultsSection.innerHTML =
+          `<section>
+        <div id ="addedToIItinerary">Park Added to Your Itinerary</div>
+        </section > `
+      })
+      document.querySelector("#parksField").addEventListener("click", event => {
+        document.querySelector("#addedToIItinerary").innerHTML = ""
+      })
+      document.querySelector("#artsField").addEventListener("click", event => {
+        document.querySelector("#addedToIItinerary").innerHTML = ""
       })
     })
 })
 
-// Print Park Search To Itinerary
-// document.getElementById("parks-save-button").addEventListener("click", function () {
-//   console.log("Save Button Works")
-// })
+let artsFieldValue2 = document.querySelector("#artsField")
 
-// const parkSaveEvent = document.getElementByClass("parkTitle")
-// resultsContainer.innerHTML = parksHTMLFactory(park)
-
+artsFieldValue2 = document.querySelector("#artsField")
 // Art Search Event Handler
 document.querySelector("#artSearchButton").addEventListener("click", event => {
-  const artsFieldValue = document.getElementById("artsField").value
+  let artsFieldValue = document.querySelector("#artsField").value
   getArtWorks(artsFieldValue)
     .then(artworks => {
-      for (let art of artworks) {
-        resultsContainer.innerHTML += artComponent(art)
+      for (let i = 0; i < artworks.length; i++) {
+        resultsContainer.innerHTML += artComponent(artworks[i], i)
+        console.log(resultsContainer)
+        artsFieldValue2.value = ""
       }
+      document.querySelector(".art-save-button").addEventListener("click", event => {
+        artResultID = document.querySelector("#art--0")
+        itineraryResultsContainer.innerHTML += document.querySelector(".artLocation").innerHTML
+        resultsSection.innerHTML =
+          `<section>
+        <div id ="addedToIItinerary">Museum Added to Your Itinerary</div>
+        </section > `
+      })
+      document.querySelector("#artsField").addEventListener("click", event => {
+        document.querySelector("#addedToIItinerary").innerHTML = ""
+      })
+      document.querySelector("#parksField").addEventListener("click", event => {
+        document.querySelector("#addedToIItinerary").innerHTML = ""
+      })
     })
 })
+// document.querySelector("#artsField").addEventListener("click", event => {
+//   document.querySelector("#addedToIItinerary").innerHTML = ""
+// })
