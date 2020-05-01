@@ -15,23 +15,34 @@ document.querySelector("#parkSearchButton").addEventListener("click", event => {
   getParks(parksFieldValue)
     .then(parks => {
       for (let i = 0; i < parks.length; i++) {
-        resultsContainer.innerHTML = parksHTMLFactory(parks[i], i)
+        resultsContainer.innerHTML += parksHTMLFactory(parks[i], i)
+        // console.log(resultsContainer)
         parksFieldValue2.value = ""
       }
-      document.querySelector(".parks-save-button").addEventListener("click", event => {
-        parkResultID = document.querySelector("#park--0")
-        itineraryResultsContainer.innerHTML += document.querySelector(".parkTitle").innerHTML
+      const allParkSaveButtons = document.querySelectorAll(".parks-save-button")
+      allParkSaveButtons.forEach(button => button.addEventListener("click", event => {
+        const parkID = event.target.id.split("--")[1]
+        parkResultContainer = document.querySelector(`#park--${parkID}`)
+        // let titleONly = document.querySelector(".parkTitle").textContent
+        parksResultsContainer.innerHTML += parkResultContainer.children[0].textContent
 
         resultsSection.innerHTML =
           `<section>
-        <div id ="addedToIItinerary">Park Added to Your Itinerary</div>
-        </section > `
-      })
+          <div id="addedToItinerary">"Park Added to Your Itinerary"</div>
+          <div class="thumbsUp"</div>
+        </section> `
+      }))
       document.querySelector("#parksField").addEventListener("click", event => {
-        document.querySelector("#addedToIItinerary").innerHTML = ""
+        document.querySelector("#addedToItinerary").innerHTML = ""
       })
       document.querySelector("#artsField").addEventListener("click", event => {
-        document.querySelector("#addedToIItinerary").innerHTML = ""
+        document.querySelector("#addedToItinerary").innerHTML = ""
+      })
+      document.querySelector("#parksField").addEventListener("click", event => {
+        document.querySelector(".thumbsUp").classList = ""
+      })
+      document.querySelector("#artsField").addEventListener("click", event => {
+        document.querySelector(".thumbsUp").classList = ""
       })
     })
 })
@@ -46,25 +57,33 @@ document.querySelector("#artSearchButton").addEventListener("click", event => {
     .then(artworks => {
       for (let i = 0; i < artworks.length; i++) {
         resultsContainer.innerHTML += artComponent(artworks[i], i)
-        console.log(resultsContainer)
         artsFieldValue2.value = ""
       }
-      document.querySelector(".art-save-button").addEventListener("click", event => {
-        artResultID = document.querySelector("#art--0")
-        itineraryResultsContainer.innerHTML += document.querySelector(".artLocation").innerHTML
+      const allArtSaveButtons = document.querySelectorAll(".art-save-button")
+      allArtSaveButtons.forEach(button => button.addEventListener("click", event => {
+        const artID = event.target.id.split("--")[1]
+        artsResultContainer = document.querySelector(`#art--${artID}`)
+        artsResultsContainer.innerHTML += artsResultContainer.children[0].textContent
         resultsSection.innerHTML =
           `<section>
-        <div id ="addedToIItinerary">Museum Added to Your Itinerary</div>
-        </section > `
-      })
+          <div id="addedToItinerary">Museum Added to Your Itinerary</div>
+          <div class="thumbsUp"</div>
+        </section> `
+      }))
       document.querySelector("#artsField").addEventListener("click", event => {
-        document.querySelector("#addedToIItinerary").innerHTML = ""
+        document.querySelector("#addedToItinerary").innerHTML = ""
       })
       document.querySelector("#parksField").addEventListener("click", event => {
-        document.querySelector("#addedToIItinerary").innerHTML = ""
+        document.querySelector("#addedToItinerary").innerHTML = ""
+      })
+      document.querySelector("#parksField").addEventListener("click", event => {
+        document.querySelector(".thumbsUp").classList = ""
+      })
+      document.querySelector("#artsField").addEventListener("click", event => {
+        document.querySelector(".thumbsUp").classList = ""
       })
     })
 })
 // document.querySelector("#artsField").addEventListener("click", event => {
-//   document.querySelector("#addedToIItinerary").innerHTML = ""
+//   document.querySelector("#addedToItinerary").innerHTML = ""
 // })

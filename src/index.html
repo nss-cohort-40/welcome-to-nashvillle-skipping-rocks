@@ -15,35 +15,36 @@
     <section class="searchForm">
         <fieldset>
             <div class="parksContainer">
-                <p>Parks:</p>
-                <input type="text" name="parks by name" placeholder="e.g.parks" id="parksField" autofocus />
+                <p>Parks Canoe Launch:</p>
+                <input type="text" name="parks by name" placeholder="Yes or No" id="parksField" autofocus />
                 <button id="parkSearchButton">Search</button>
             </div>
             <div class="artContainer">
                 <p>Museums:</p>
-                <input type="text" name="art by name" placeholder="e.g.museums" id="artsField">
+                <input type="text" name="art by name" placeholder="e.g. Artist First Name" id="artsField">
                 <button id="artSearchButton">Search</button>
             </div>
         </fieldset>
     </section>
 
     <section class="searchOutput">
-        <h2>Search Results</h2>
-        <div class="searchResults">
+        <div class="searchSide">
+            <h2>Search Results</h2>
+            <div class="searchResults">
 
+            </div>
         </div>
-        <h2>My Itinerary</h2>
-        <div class="itineraryResults" id="itineraryResultsSectoin">
 
+        <div class="itinerarySide">
+            <h2>My Itinerary</h2>
+            <div class="itineraryResults" id="itineraryResultsSection">
+                <section class="textAdjust" id="parkReturn">Park: </section>
+                <section class="textAdjust" id="artReturn">Museum: </section>
+            </div>
         </div>
     </section>
-
     <script src="scripts/artCollections.js"></script>
     <script src="scripts/parks.js"></script>
-    <script src="scripts/concerts.js"></script>
-    <script src="scripts/restaurants.js"></script>
-    <script src="scripts/keys.js"></script>
-    <script src="scripts/main.js"></script>
     <script src="scripts/domComponent.js"></script>
     <script src="scripts/eventHandlers.js"></script>
 </body>

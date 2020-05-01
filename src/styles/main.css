@@ -1,0 +1,80 @@
+body{
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjlbworks.com%2Fwp-content%2Fuploads%2F2020%2F01%2Fbackground-plax.jpg&f=1&nofb=1");
+}
+
+h1{
+    text-align:center;
+    padding: 10px;
+    font-family: sans-serif;
+}
+h2{
+    text-align:center;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+.searchOutput {
+    display: flex;
+    background-color:white;
+    box-shadow: 10px 10px 25px;
+    margin-top: 20px;
+    
+}
+
+.itinerarySide {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+}
+
+.searchSide {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.searchForm{
+    background-color:red;
+    box-shadow: 10px 10px 25px;
+    
+}
+
+.itineraryResults {
+    padding: 25px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textAdjust{
+    text-align:center;
+    font-weight: bold;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+.searchResults{
+    margin: 10px;
+
+}
+
+.artReturnDiv{
+margin: 20px;
+}
+.parksReturnDiv{
+    margin: 20px;
+}
+
+#addedToItinerary{
+    color: green;
+}
+
+.thumbsUp {
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F1f%2FSMirC-thumbsup.svg%2F600px-SMirC-thumbsup.svg.png&f=1&nofb=1");
+    min-width: 50px;
+    min-height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
